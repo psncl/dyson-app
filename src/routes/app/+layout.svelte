@@ -101,6 +101,6 @@
 	.component-container {
 		overflow: auto;
 		margin-bottom: 2rem;
-		height: 80vh;
+		height: 85vh;
 	}
 </style>
