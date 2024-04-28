@@ -18,7 +18,9 @@
 	</div>
 </nav>
 
-<slot />
+<div class="component-container">
+	<slot />
+</div>
 
 <style>
 	* {
@@ -94,5 +96,11 @@
 	.user-icon img:hover {
 		transform: scale(1.2);
 		transition: all 0.1s ease;
+	}
+
+	.component-container {
+		overflow: auto;
+		margin-bottom: 2rem;
+		height: 80vh;
 	}
 </style>
