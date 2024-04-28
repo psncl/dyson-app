@@ -33,23 +33,32 @@
 			<button on:click={addProduct} class="add-button">Add Product ⨁</button>
 		</ul>
 
-		<form class="product-form">
+		<form class="product-form" method="post">
 			<label for="cname" class="form-heading">Customer Name:</label>
 			<input name="cname" id="cname" type="text" placeholder="Customer Name" />
 			<label for="productmodel" class="form-heading">Select Product:</label>
-			<input name="productmodel" id="productmodel" type="text" placeholder="Select Model" />
+			<input name="productmodel" id="productmodel" type="text" placeholder="Select model..." />
 			<label for="serialnumber" class="form-heading">Serial Number:</label>
 			<input name="serialnumber" id="serialnumber" type="text" placeholder="Serial Number" />
 
-			<fieldset>
-				<legend>Reason of Return:</legend>
+			<div role="radiogroup" class="radiogroup">
+				<span class="form-heading">Reason of Return:</span>
 				{#each reasons as reason (reason)}
-					<span>
+					<span class="radio-options">
 						<input type="radio" id={reason} name="reasonreturn" value={reason} />
 						<label for={reason}>{capitalizeFirstLetter(reason)}</label>
 					</span>
 				{/each}
-			</fieldset>
+			</div>
+
+			<label for="productcondition" class="form-heading">Product Condition:</label>
+			<input
+				name="productcondition"
+				id="productcondition"
+				type="text"
+				placeholder="Select condition..."
+			/>
+			<button on:click|preventDefault>Submit</button>
 		</form>
 	</div>
 </div>
@@ -111,24 +120,30 @@
 	}
 
 	.product-form {
-		padding: 4rem;
+		padding: 4rem 8rem;
+	}
+
+	.product-form,
+	.add-button,
+	.radio-options > * {
 		font-size: 2.5rem;
 	}
 
 	.add-button {
 		border: none;
-		font-size: 2.5rem;
 		padding: 1rem;
 		width: 100%;
 		background-color: var(--dyson-color);
 		margin-top: auto;
 	}
 
-	.add-button:hover {
+	.add-button:hover,
+	.product-form button:hover {
 		background-color: #99e445;
 	}
 
-	.add-button:active {
+	.add-button:active,
+	.product-form button:active {
 		transform: translate(2px, 2px);
 	}
 
@@ -140,7 +155,20 @@
 
 	.product-form > input {
 		padding: 0.5rem 1rem;
-		margin-bottom: 3rem;
+		margin-bottom: 4rem;
+		width: 70%;
+	}
+
+	.product-form button {
+		background-color: var(--dyson-color);
+		border: none;
+		padding: 2rem;
+		width: 30rem;
+		border-radius: 0.5rem;
+	}
+
+	.radiogroup {
+		margin-bottom: 4rem;
 	}
 
 	.product-form > input:last-child {
@@ -149,5 +177,13 @@
 
 	.form-heading {
 		font-size: 3rem;
+	}
+
+	.radio-options {
+		margin-left: 5rem;
+	}
+
+	.radio-options > label {
+		margin-left: 1rem;
 	}
 </style>
