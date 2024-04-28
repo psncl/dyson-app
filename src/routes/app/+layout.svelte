@@ -2,7 +2,7 @@
 	<img src="/dyson_logo.svg" alt="dyson logo" class="logo" />
 	<div class="nav-links">
 		<ul>
-			<a href="logproduct">Dashboard</a>
+			<a href="/app/logproduct">Dashboard</a>
 			<a href="/">Log New Products</a>
 			<a href="/">View Logged Products</a>
 			<a href="/">Manage Users</a>

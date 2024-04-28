@@ -1,15 +1,14 @@
 <script>
-	let productCount = 1;
 	let products = [
 		{
-			id: productCount
+			sNo: 1
 		}
 	];
 
 	function addProduct() {
-		productCount++;
+		let curNumItems = products.length;
 		products.push({
-			id: productCount
+			sNo: curNumItems + 1
 		});
 		products = products;
 	}
@@ -23,8 +22,8 @@
 
 	<div class="product-list">
 		<ul>
-			{#each products as product (product.id)}
-				<li>Product {product.id}</li>
+			{#each products as product, i (product.sNo)}
+				<li>Product {i + 1}</li>
 			{/each}
 			<button on:click={addProduct} class="add-button">Add Product ⨁</button>
 		</ul>
@@ -34,7 +33,7 @@
 </div>
 
 <style>
-	@import '../../../app.css';
+	@import '$lib/app.css';
 
 	.container {
 		width: 70%;
