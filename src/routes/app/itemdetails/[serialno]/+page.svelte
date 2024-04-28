@@ -41,7 +41,8 @@
 		font-weight: 500;
 	}
 
-	header a {
+	header a:link,
+	header a:visited {
 		text-decoration: none;
 		color: var(--dyson-color);
 		font-size: 2rem;
@@ -49,6 +50,11 @@
 		left: 2rem;
 		top: 0;
 		transform: translateY(50%);
+	}
+
+	header a:hover {
+		transform: scale(1.1) translateY(50%);
+		transition: transform 0.1s ease;
 	}
 
 	.subcontainer {
