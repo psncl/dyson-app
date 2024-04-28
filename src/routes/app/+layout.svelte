@@ -2,7 +2,7 @@
 	<img src="/dyson_logo.svg" alt="dyson logo" class="logo" />
 	<div class="nav-links">
 		<ul>
-			<a href="/">Dashboard</a>
+			<a href="logproduct">Dashboard</a>
 			<a href="/">Log New Products</a>
 			<a href="/">View Logged Products</a>
 			<a href="/">Manage Users</a>
@@ -13,16 +13,16 @@
 	</div>
 </nav>
 
-<style>
-	@import '../../app.css';
+<slot />
 
+<style>
 	* {
 		padding: 3px 0;
 		margin: 0;
 		box-sizing: border-box;
 	}
 	nav {
-		background-color: #1d1d1d;
+		background-color: var(--bg-accent-color);
 		min-height: 6rem;
 		height: 5vh;
 		display: flex;
