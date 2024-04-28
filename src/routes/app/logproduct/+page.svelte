@@ -1,3 +1,20 @@
+<script>
+	let productCount = 1;
+	let products = [
+		{
+			id: productCount
+		}
+	];
+
+	function addProduct() {
+		productCount++;
+		products.push({
+			id: productCount
+		});
+		products = products;
+	}
+</script>
+
 <div class="container">
 	<header>
 		<h2>Log New Products</h2>
@@ -6,9 +23,10 @@
 
 	<div class="product-list">
 		<ul>
-			<li>Product 1</li>
-			<li>Product 2</li>
-			<button class="add-button">Add Product</button>
+			{#each products as product (product.id)}
+				<li>Product {product.id}</li>
+			{/each}
+			<button on:click={addProduct} class="add-button">Add Product ⨁</button>
 		</ul>
 	</div>
 
@@ -34,6 +52,12 @@
 		text-align: center;
 		padding: 1rem 0;
 		grid-column: 1 / -1;
+	}
+
+	header,
+	.product-list,
+	.product-form {
+		border-radius: 0.5rem;
 	}
 
 	header h2 {
