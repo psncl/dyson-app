@@ -1,9 +1,14 @@
 <nav>
-	<img src="/dyson_logo.svg" alt="dyson logo" class="logo" />
+	<div class="home-and-logo">
+		<a href="/app" class="home-icon-container">
+			<img src="/home.png" class="home-icon" alt="home-icon" />
+		</a>
+		<img src="/dyson_logo.svg" alt="dyson logo" class="logo" />
+	</div>
 	<div class="nav-links">
 		<ul>
-			<a href="/app/logproduct">Dashboard</a>
-			<a href="/">Log New Products</a>
+			<a href="/">Dashboard</a>
+			<a href="/app/logproduct">Log New Products</a>
 			<a href="/">View Logged Products</a>
 			<a href="/">Manage Users</a>
 		</ul>
@@ -31,13 +36,33 @@
 		align-items: center;
 	}
 
+	.home-and-logo {
+		display: flex;
+		gap: 2rem;
+		height: 100%;
+		margin-left: 4rem;
+	}
+
+	.home-icon-container {
+		height: 100%;
+	}
+
+	.home-icon {
+		height: 80%;
+		filter: invert(100%);
+	}
+
+	.home-icon:hover {
+		transform: scale(1.1);
+		transition: all 0.1s ease;
+	}
+
 	.nav-links {
 		display: flex;
 	}
 
 	.logo {
 		max-height: 100%;
-		margin-left: 4rem;
 	}
 
 	ul {
