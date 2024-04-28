@@ -1,0 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Alata&display=swap');
+
+:root {
+    --dyson-color: #7bb836;
+}
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Alata", sans-serif;
+    font-size: 10px;
+}
