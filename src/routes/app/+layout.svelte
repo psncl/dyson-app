@@ -30,19 +30,19 @@
 	}
 	nav {
 		background-color: var(--bg-accent-color);
-		min-height: 6rem;
+		min-height: 3.75rem;
 		height: 5vh;
 		display: flex;
-		gap: 10rem;
+		gap: 6.25rem;
 		justify-content: space-between;
 		align-items: center;
 	}
 
 	.home-and-logo {
 		display: flex;
-		gap: 2rem;
+		gap: 1.25rem;
 		height: 100%;
-		margin-left: 4rem;
+		margin-left: 2.5rem;
 	}
 
 	.home-icon-container {
@@ -69,15 +69,15 @@
 
 	ul {
 		display: flex;
-		gap: 5rem;
-		margin-right: 4rem;
+		gap: 3.2rem;
+		margin-right: 2.5rem;
 	}
 
 	a:link,
 	a:visited {
 		color: #fff;
 		text-decoration: none;
-		font-size: 2.5rem;
+		font-size: 1.8rem;
 	}
 
 	a:hover {
@@ -87,7 +87,7 @@
 	}
 
 	.user-icon {
-		margin-right: 4rem;
+		margin-right: 2.5rem;
 		display: flex;
 		justify-content: center;
 		align-items: center;
@@ -100,7 +100,7 @@
 
 	.component-container {
 		overflow: auto;
-		margin-bottom: 2rem;
+		margin-bottom: 1.2rem;
 		height: 85vh;
 	}
 </style>
