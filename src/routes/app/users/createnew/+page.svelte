@@ -1,4 +1,26 @@
 <script>
+	let disabledSubmit = false;
+	let errorInForm;
+	let errorMessage = '';
+
+	let formData = { fname: '', lname: '', userid: '', userRole: '', pwd1: '', pwd2: '' };
+
+	function showError(errorMsg) {
+		errorInForm = true;
+		errorMessage = errorMsg;
+	}
+
+	function submitForm() {
+		if (Object.values(formData).some((val) => val === '')) {
+			showError('All values must be filled!');
+			return;
+		}
+		if (formData.pwd1 != formData.pwd2) {
+			showError("Passwords don't match!");
+			return;
+		}
+		errorInForm = false;
+	}
 </script>
 
 <div class="container">
@@ -7,22 +29,26 @@
 		<h2>Create New User</h2>
 	</header>
 
-	<form id="user_form" action="#">
+	{#if errorInForm}
+		<div class="error-form">{errorMessage}</div>
+	{/if}
+
+	<form id="user_form" action="#" method="post">
 		<div class="input-box">
 			<label for="fname">First Name:</label>
-			<input type="text" placeholder="First Name" name="fname" id="fname" required />
+			<input type="text" placeholder="First Name" bind:value={formData.fname} id="fname" required />
 		</div>
 		<div class="input-box">
 			<label for="lname">Last Name:</label>
-			<input type="text" placeholder="Last Name" name="lname" id="lname" required />
+			<input type="text" placeholder="Last Name" bind:value={formData.lname} id="lname" required />
 		</div>
 		<div class="input-box">
-			<label for="user_id">User ID:</label>
-			<input name="user_id" id="user_id" type="text" placeholder="User ID" required />
+			<label for="userid">User ID:</label>
+			<input bind:value={formData.userid} id="userid" type="text" placeholder="User ID" required />
 		</div>
 		<div class="input-box">
-			<label for="user_roles">Role:</label>
-			<select id="user_roles" name="creation_role" placeholder="Select a role" required>
+			<label for="userrole">Role:</label>
+			<select id="userrole" bind:value={formData.userRole} placeholder="Select a role" required>
 				<option value="" disabled selected>Select a role</option>
 				<option value="junior_associate">Junior Logistics and Shipping Associate</option>
 				<option value="senior_associate">Senior Logistics and Shipping Associate</option>
@@ -30,15 +56,26 @@
 			</select>
 		</div>
 		<div class="input-box">
-			<label for="p1">Password:</label>
-			<input name="p1" type="password" id="p1" placeholder="Password" required />
+			<label for="pwd1">Password:</label>
+			<input bind:value={formData.pwd1} type="password" id="pwd1" placeholder="Password" required />
 		</div>
 		<div class="input-box">
-			<label for="p2">Confirm Password:</label>
-			<input name="p2" type="password" id="p2" placeholder=" Confirm Password" required />
+			<label for="pwd2">Confirm Password:</label>
+			<input
+				bind:value={formData.pwd2}
+				type="password"
+				id="pwd2"
+				placeholder="Confirm Password"
+				required
+			/>
 		</div>
 
-		<button type="submit" class="creation_btn">Create</button>
+		<button
+			type="submit"
+			class="creation_btn"
+			disabled={disabledSubmit}
+			on:click|preventDefault={submitForm}>Create User</button
+		>
 	</form>
 </div>
 
@@ -85,6 +122,17 @@
 		transition: transform 0.1s ease;
 	}
 
+	.error-form {
+		background-color: #d61818;
+		font-size: 2rem;
+		color: #fff;
+		width: 75%;
+		margin: 0.5rem auto;
+		padding: 0 1rem;
+		border-radius: 0.5rem;
+		text-align: center;
+	}
+
 	/* Tushar's code:*/
 	#user_form {
 		display: grid;
@@ -116,7 +164,7 @@
 		justify-content: space-between;
 	}
 
-	#user_roles option {
+	#userrole option {
 		font-size: 1.5rem;
 	}
 
@@ -130,7 +178,7 @@
 		display: flex;
 		justify-content: center;
 		font-size: 2.5rem;
-		background: #7bb836;
+		background-color: #7bb836;
 		padding: 0.5rem;
 		border-radius: 0.5rem;
 	}
