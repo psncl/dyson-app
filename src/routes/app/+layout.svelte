@@ -7,9 +7,9 @@
 	</div>
 	<div class="nav-links">
 		<ul>
-			<a href="/">Dashboard</a>
+			<a href="/app">Dashboard</a>
 			<a href="/app/logproduct">Log New Products</a>
-			<a href="/">View Logged Products</a>
+			<a href="/app/viewproducts">View Logged Products</a>
 			<a href="/">Manage Users</a>
 		</ul>
 		<a href="/" class="user-icon">

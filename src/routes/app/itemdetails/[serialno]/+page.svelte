@@ -4,7 +4,7 @@
 
 <div class="container">
 	<header>
-		<a href="/">← Back</a>
+		<a href="/app/viewproducts">← Back</a>
 		<h2>Product Details</h2>
 	</header>
 

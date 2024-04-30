@@ -5,7 +5,7 @@
 	@import '$lib/app.css';
 
 	p {
-		padding: 5rem;
-		font-size: 3rem;
+		padding: 3.5rem;
+		font-size: 2rem;
 	}
 </style>
