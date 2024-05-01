@@ -10,7 +10,7 @@
 			<a href="/app">Dashboard</a>
 			<a href="/app/logproduct">Log New Products</a>
 			<a href="/app/viewproducts">View Logged Products</a>
-			<a href="/">Manage Users</a>
+			<a href="/app/users/manage">Manage Users</a>
 		</ul>
 		<a href="/" class="user-icon">
 			<img src="/user-circle-icon.svg" alt="user-icon" />

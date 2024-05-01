@@ -6,8 +6,8 @@
 	let formData = { fname: '', lname: '', userid: '', userRole: '', pwd1: '', pwd2: '' };
 
 	function showError(errorMsg) {
-		errorInForm = true;
 		errorMessage = errorMsg;
+		errorInForm = true;
 	}
 
 	function submitForm() {

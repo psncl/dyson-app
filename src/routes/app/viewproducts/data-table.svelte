@@ -100,7 +100,13 @@
 							{#each row.cells as cell (cell.id)}
 								<Subscribe attrs={cell.attrs()} let:attrs>
 									<Table.Cell {...attrs}>
-										<Render of={cell.render()} />
+										{#if cell.id === 'sno'}
+											<a href="/app/itemdetails/{cell.render()}" class={'text-blue-700'}
+												><Render of={cell.render()} /></a
+											>
+										{:else}
+											<Render of={cell.render()} />
+										{/if}
 									</Table.Cell>
 								</Subscribe>
 							{/each}
