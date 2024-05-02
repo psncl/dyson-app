@@ -15,7 +15,7 @@
 			showError('All values must be filled!');
 			return;
 		}
-		if (formData.pwd1 != formData.pwd2) {
+		if (formData.pwd1 !== formData.pwd2) {
 			showError("Passwords don't match!");
 			return;
 		}
