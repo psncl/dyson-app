@@ -10,7 +10,13 @@
 		<h2>User Management</h2>
 	</header>
 
-	<div class="subcontainer">
+	<div class={'subcontainer flex flex-col gap-3'}>
+		<a href="/app/users/createnew" class={'add-button self-end'}>
+			<Button class={' text-black-700 bg-green-600 text-lg hover:bg-black hover:text-white'}
+				>&#8853; Add New User</Button
+			>
+		</a>
+
 		<Table.Root>
 			<Table.Header>
 				<Table.Row class={'bg-green-600 hover:bg-green-600'}>
@@ -28,7 +34,6 @@
 						<Table.Cell>{user.userid}</Table.Cell>
 						<Table.Cell>{user.email}</Table.Cell>
 						<Table.Cell>{user.role}</Table.Cell>
-						<!-- <Table.Cell class="text-center">Edit</Table.Cell> -->
 						<Table.Cell class="text-center">
 							<Button
 								variant="outline"
