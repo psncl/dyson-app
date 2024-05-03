@@ -10,7 +10,7 @@
 	<DropdownMenu.Trigger asChild let:builder>
 		<Button builders={[builder]}><img src="/user-circle-icon.svg" alt="user-icon" /></Button>
 	</DropdownMenu.Trigger>
-	<DropdownMenu.Content class="w-56">
+	<DropdownMenu.Content class="w-56 border-y-4 border-y-green-600">
 		<DropdownMenu.Label>Welcome &#123; Username &#125;</DropdownMenu.Label>
 		<DropdownMenu.Label>Senior Logistics Officer</DropdownMenu.Label>
 		<DropdownMenu.Separator />

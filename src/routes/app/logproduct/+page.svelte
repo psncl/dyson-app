@@ -19,7 +19,7 @@
 	}
 </script>
 
-<div class="container">
+<div class="mycontainer">
 	<header>
 		<h2>Log New Products</h2>
 		<p>Log all details of returned products</p>
@@ -66,9 +66,9 @@
 <style>
 	@import '$lib/app.css';
 
-	.container {
-		width: 70%;
-		margin: 5rem auto 0 auto;
+	.mycontainer {
+		margin: 1.5rem auto 0 auto;
+		width: 90%;
 	}
 
 	.grid-container {
@@ -76,33 +76,33 @@
 		display: grid;
 		grid-template-columns: 3fr 10fr;
 		border: solid 1px #000;
-		border-radius: 0.5rem;
+		border-radius: 0.3rem;
 	}
 
 	header {
 		display: flex;
 		flex-direction: column;
-		gap: 1rem;
+		gap: 0.5rem;
 		background-color: var(--bg-accent-color);
 		color: white;
 		text-align: center;
-		padding: 1rem 0;
+		padding: 0.5rem 0;
 		grid-column: 1 / -1;
 	}
 
 	header,
 	.product-list,
 	.product-form {
-		border-radius: 0.5rem;
+		border-radius: 0.3rem;
 	}
 
 	header h2 {
-		font-size: 3rem;
+		font-size: 1.8rem;
 		font-weight: 500;
 	}
 
 	header p {
-		font-size: 2rem;
+		font-size: 1.2rem;
 	}
 
 	.product-list {
@@ -113,25 +113,25 @@
 	}
 
 	.product-list li {
-		font-size: 2rem;
+		font-size: 1.2rem;
 		list-style: none;
 		border-bottom: solid 1px #000;
 		padding: 1rem 0 1rem 2rem;
 	}
 
 	.product-form {
-		padding: 4rem 8rem;
+		padding: 2rem 4rem;
 	}
 
 	.product-form,
 	.add-button,
 	.radio-options > * {
-		font-size: 2.5rem;
+		font-size: 1.5rem;
 	}
 
 	.add-button {
 		border: none;
-		padding: 1rem;
+		padding: 0.5rem;
 		width: 100%;
 		background-color: var(--dyson-color);
 		margin-top: auto;
@@ -150,25 +150,25 @@
 	.product-form > * {
 		display: block;
 		font-size: inherit;
-		margin-bottom: 2rem;
+		margin-bottom: 1rem;
 	}
 
 	.product-form > input {
-		padding: 0.5rem 1rem;
-		margin-bottom: 4rem;
+		padding: 0.3rem 0.5rem;
+		margin-bottom: 2rem;
 		width: 70%;
 	}
 
 	.product-form button {
 		background-color: var(--dyson-color);
 		border: none;
-		padding: 2rem;
-		width: 30rem;
-		border-radius: 0.5rem;
+		padding: 1rem;
+		width: 20rem;
+		border-radius: 0.3rem;
 	}
 
 	.radiogroup {
-		margin-bottom: 4rem;
+		margin-bottom: 2rem;
 	}
 
 	.product-form > input:last-child {
@@ -176,14 +176,14 @@
 	}
 
 	.form-heading {
-		font-size: 3rem;
+		font-size: 1.5rem;
 	}
 
 	.radio-options {
-		margin-left: 5rem;
+		margin-left: 3rem;
 	}
 
 	.radio-options > label {
-		margin-left: 1rem;
+		margin-left: 0.5rem;
 	}
 </style>
