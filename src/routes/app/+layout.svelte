@@ -1,3 +1,7 @@
+<script>
+	import UserDropdown from './UserDropdown.svelte';
+</script>
+
 <nav>
 	<div class="home-and-logo">
 		<a href="/app" class="home-icon-container">
@@ -12,9 +16,9 @@
 			<a href="/app/viewproducts">View Logged Products</a>
 			<a href="/app/users/manage">Manage Users</a>
 		</ul>
-		<a href="/" class="user-icon">
-			<img src="/user-circle-icon.svg" alt="user-icon" />
-		</a>
+		<div class="user-icon">
+			<UserDropdown />
+		</div>
 	</div>
 </nav>
 
@@ -87,13 +91,13 @@
 	}
 
 	.user-icon {
-		margin-right: 2.5rem;
+		margin-right: 0.5rem;
 		display: flex;
 		justify-content: center;
 		align-items: center;
 	}
 
-	.user-icon img:hover {
+	.user-icon:hover {
 		transform: scale(1.2);
 		transition: all 0.1s ease;
 	}
