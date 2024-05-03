@@ -2,6 +2,8 @@
 	import * as Table from '$lib/components/ui/table';
 	import { FilePenLine } from 'lucide-svelte';
 	import { Button } from '$lib/components/ui/button/index.js';
+	import EditModal from './EditModal.svelte';
+
 	export let data;
 </script>
 
@@ -12,7 +14,7 @@
 
 	<div class={'subcontainer flex flex-col gap-3'}>
 		<a href="/app/users/createnew" class={'add-button self-end'}>
-			<Button class={' text-black-700 bg-green-600 text-lg hover:bg-black hover:text-white'}
+			<Button class={'text-black-700 bg-green-600 text-lg hover:bg-black hover:text-white'}
 				>&#8853; Add New User</Button
 			>
 		</a>
@@ -35,12 +37,7 @@
 						<Table.Cell>{user.email}</Table.Cell>
 						<Table.Cell>{user.role}</Table.Cell>
 						<Table.Cell class="text-center">
-							<Button
-								variant="outline"
-								class={'border-indigo-500 hover:bg-red-700 hover:text-white'}
-								><FilePenLine class={'mr-2'} />
-								<a href="/app/users/edit/{user.userid}">Edit</a></Button
-							>
+							<EditModal userData={user} />
 						</Table.Cell>
 					</Table.Row>
 				{/each}
