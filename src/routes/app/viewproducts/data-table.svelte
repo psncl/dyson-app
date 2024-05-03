@@ -2,7 +2,6 @@
 	import { createTable, Render, Subscribe, createRender } from 'svelte-headless-table';
 	import { readable } from 'svelte/store';
 	import * as Table from '$lib/components/ui/table';
-	import DataTableActions from './data-table-actions.svelte';
 	import { Button } from '$lib/components/ui/button';
 	import { addPagination, addSortBy, addTableFilter } from 'svelte-headless-table/plugins';
 	import ArrowUpDown from 'lucide-svelte/icons/arrow-up-down';
@@ -44,21 +43,6 @@
 		table.column({
 			accessor: 'reason',
 			header: 'Reason'
-		}),
-		table.column({
-			accessor: ({ id }) => id,
-			header: '',
-			plugins: {
-				sort: {
-					disable: true
-				}
-			},
-			filter: {
-				exclude: true
-			},
-			cell: ({ value }) => {
-				return createRender(DataTableActions, { sno: value });
-			}
 		})
 	]);
 
