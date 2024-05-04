@@ -25,7 +25,42 @@
 		<p>Log all details of returned products</p>
 	</header>
 
-	<div class="grid-container"></div>
+	<div class="grid-container">
+		<ul class="product-list">
+			{#each products as product, i (product.sNo)}
+				<li>Product {i + 1}</li>
+			{/each}
+			<button on:click={addProduct} class="add-button">Add Product ⨁</button>
+		</ul>
+
+		<form class="product-form" method="post">
+			<label for="cname" class="form-heading">Customer Name:</label>
+			<input name="cname" id="cname" type="text" placeholder="Customer Name" />
+			<label for="productmodel" class="form-heading">Select Product:</label>
+			<input name="productmodel" id="productmodel" type="text" placeholder="Select model..." />
+			<label for="serialnumber" class="form-heading">Serial Number:</label>
+			<input name="serialnumber" id="serialnumber" type="text" placeholder="Serial Number" />
+
+			<div role="radiogroup" class="radiogroup">
+				<span class="form-heading">Reason of Return:</span>
+				{#each reasons as reason (reason)}
+					<span class="radio-options">
+						<input type="radio" id={reason} name="reasonreturn" value={reason} />
+						<label for={reason}>{capitalizeFirstLetter(reason)}</label>
+					</span>
+				{/each}
+			</div>
+
+			<label for="productcondition" class="form-heading">Product Condition:</label>
+			<input
+				name="productcondition"
+				id="productcondition"
+				type="text"
+				placeholder="Select condition..."
+			/>
+			<button on:click|preventDefault>Submit</button>
+		</form>
+	</div>
 </div>
 
 <style>
