@@ -1,5 +1,6 @@
 <script>
-	let reasons = ['refund', 'repair', 'recycle'];
+	import LogForm from './logproduct-form.svelte';
+	export let data;
 	let products = [
 		{
 			sNo: 1
@@ -13,10 +14,6 @@
 		});
 		products = products;
 	}
-
-	function capitalizeFirstLetter(string) {
-		return string.charAt(0).toUpperCase() + string.slice(1);
-	}
 </script>
 
 <div class="mycontainer">
@@ -25,7 +22,9 @@
 		<p>Log all details of returned products</p>
 	</header>
 
-	<div class="grid-container"></div>
+	<div class="grid-container">
+		<LogForm data={data.form}></LogForm>
+	</div>
 </div>
 
 <style>
@@ -38,10 +37,11 @@
 
 	.grid-container {
 		height: 70vh;
-		display: grid;
-		grid-template-columns: 3fr 10fr;
+		/* display: grid;
+		grid-template-columns: 3fr 10fr; */
 		border: solid 1px #000;
 		border-radius: 0.3rem;
+		padding: 2rem;
 	}
 
 	header {
