@@ -12,11 +12,15 @@
 		validators: zodClient(formSchema)
 	});
 
+	const handleSubmit = () => {
+		console.log($formData);
+	};
+
 	const { form: formData, enhance } = form;
 
 	let productModels = ['V12', 'V18', 'V21'];
 	let reasons = ['refund', 'repair', 'recycle'];
-	function capitalizeFirstLetter(string) {
+	function capitalizeFirstLetter(string: String) {
 		return string.charAt(0).toUpperCase() + string.slice(1);
 	}
 
@@ -28,7 +32,7 @@
 		: undefined;
 </script>
 
-<form method="POST" use:enhance class="flex items-end gap-4">
+<form method="POST" use:enhance class="flex items-end gap-4" on:submit={handleSubmit}>
 	<Form.Field {form} name="productmodel">
 		<Form.Control let:attrs>
 			<Form.Label>Product Model</Form.Label>
@@ -54,6 +58,13 @@
 	<Form.Field {form} name="cname">
 		<Form.Control let:attrs>
 			<Input {...attrs} bind:value={$formData.cname} placeholder="Customer Name" />
+		</Form.Control>
+		<Form.FieldErrors />
+	</Form.Field>
+
+	<Form.Field {form} name="serialnumber">
+		<Form.Control let:attrs>
+			<Input {...attrs} bind:value={$formData.serialnumber} placeholder="Serial Number" />
 		</Form.Control>
 		<Form.FieldErrors />
 	</Form.Field>
