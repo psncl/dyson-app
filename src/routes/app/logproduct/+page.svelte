@@ -55,9 +55,7 @@
 		grid-column: 1 / -1;
 	}
 
-	header,
-	.product-list,
-	.product-form {
+	header {
 		border-radius: 0.3rem;
 	}
 
@@ -68,87 +66,5 @@
 
 	header p {
 		font-size: 1.2rem;
-	}
-
-	.product-list {
-		height: 100%;
-		border-right: solid 1px #000;
-		display: flex;
-		flex-direction: column;
-	}
-
-	.product-list li {
-		font-size: 1.2rem;
-		list-style: none;
-		border-bottom: solid 1px #000;
-		padding: 1rem 0 1rem 2rem;
-	}
-
-	.product-form {
-		padding: 2rem 4rem;
-	}
-
-	.product-form,
-	.add-button,
-	.radio-options > * {
-		font-size: 1.5rem;
-	}
-
-	.add-button {
-		border: none;
-		padding: 0.5rem;
-		width: 100%;
-		background-color: var(--dyson-color);
-		margin-top: auto;
-	}
-
-	.add-button:hover,
-	.product-form button:hover {
-		background-color: #99e445;
-	}
-
-	.add-button:active,
-	.product-form button:active {
-		transform: translate(2px, 2px);
-	}
-
-	.product-form > * {
-		display: block;
-		font-size: inherit;
-		margin-bottom: 1rem;
-	}
-
-	.product-form > input {
-		padding: 0.3rem 0.5rem;
-		margin-bottom: 2rem;
-		width: 70%;
-	}
-
-	.product-form button {
-		background-color: var(--dyson-color);
-		border: none;
-		padding: 1rem;
-		width: 20rem;
-		border-radius: 0.3rem;
-	}
-
-	.radiogroup {
-		margin-bottom: 2rem;
-	}
-
-	.product-form > input:last-child {
-		margin-bottom: 0;
-	}
-
-	.form-heading {
-		font-size: 1.5rem;
-	}
-
-	.radio-options {
-		margin-left: 3rem;
-	}
-
-	.radio-options > label {
-		margin-left: 0.5rem;
 	}
 </style>

@@ -3,22 +3,19 @@
 	import { Input } from '$lib/components/ui/input';
 	import * as Select from '$lib/components/ui/select';
 	import { formSchema, type FormSchema } from './schema';
-	import { type SuperValidated, type Infer, superForm } from 'sveltekit-superforms';
+	import SuperDebug, { type SuperValidated, type Infer, superForm } from 'sveltekit-superforms';
 	import { zodClient } from 'sveltekit-superforms/adapters';
 	export let data: SuperValidated<Infer<FormSchema>>;
 
 	const form = superForm(data, {
-		validators: zodClient(formSchema)
+		validators: zodClient(formSchema),
+		clearOnSubmit: 'errors'
 	});
 	const { form: formData, enhance } = form;
 
 	const handleSubmit = () => {
 		console.log($formData);
 	};
-
-	function capitalizeFirstLetter(string: String) {
-		return string.charAt(0).toUpperCase() + string.slice(1);
-	}
 
 	let productModels = ['V12', 'V18', 'V21'];
 	$: selectedModel = $formData.productmodel
@@ -28,8 +25,24 @@
 			}
 		: undefined;
 
-	let reasons = ['refund', 'repair', 'recycle'];
+	let reasons = ['Refund', 'Repair', 'Recycle'];
+	$: selectedReason = $formData.reasonreturn
+		? {
+				label: $formData.reasonreturn,
+				value: $formData.reasonreturn
+			}
+		: undefined;
+
+	let productConditions = ['Poor', 'Good', 'Very Good', 'Like New'];
+	$: selectedCondition = $formData.productcondition
+		? {
+				label: $formData.productcondition,
+				value: $formData.productcondition
+			}
+		: undefined;
 </script>
+
+<!-- <SuperDebug data={formData} /> -->
 
 <form method="POST" use:enhance class="flex items-end gap-4" on:submit={handleSubmit}>
 	<Form.Field {form} name="productmodel">
@@ -46,7 +59,7 @@
 				</Select.Trigger>
 				<Select.Content>
 					{#each productModels as model (model)}
-						<Select.Item value={model}>{capitalizeFirstLetter(model)}</Select.Item>
+						<Select.Item value={model}>{model}</Select.Item>
 					{/each}
 				</Select.Content>
 			</Select.Root>
@@ -63,7 +76,12 @@
 
 	<Form.Field {form} name="serialnumber">
 		<Form.Control let:attrs>
-			<Input {...attrs} bind:value={$formData.serialnumber} placeholder="Serial Number" />
+			<Input
+				{...attrs}
+				bind:value={$formData.serialnumber}
+				maxlength="10"
+				placeholder="Serial Number"
+			/>
 		</Form.Control>
 		<Form.FieldErrors />
 	</Form.Field>
@@ -72,7 +90,7 @@
 		<Form.Control let:attrs>
 			<Form.Label>Date of Return</Form.Label>
 			<br />
-			<input class="datepicker" type="date" bind:value={$formData.datereturn} />
+			<input class="datepicker" type="date" bind:value={$formData.datereturn} required />
 		</Form.Control>
 		<Form.FieldErrors />
 	</Form.Field>
@@ -81,12 +99,56 @@
 		<Form.Control let:attrs>
 			<Form.Label>Date of Processing</Form.Label>
 			<br />
-			<input class="datepicker" type="date" bind:value={$formData.dateprocessing} />
+			<input class="datepicker" type="date" bind:value={$formData.dateprocessing} required />
 		</Form.Control>
 		<Form.FieldErrors />
 	</Form.Field>
 
-	<Form.Button class="mb-2" on:submit={handleSubmit}>Submit</Form.Button>
+	<Form.Field {form} name="reasonreturn">
+		<Form.Control let:attrs>
+			<Form.Label>Reason for Return</Form.Label>
+			<Select.Root
+				selected={selectedReason}
+				onSelectedChange={(v) => {
+					v && ($formData.reasonreturn = v.value);
+				}}
+			>
+				<Select.Trigger {...attrs} class="w-[180px]">
+					<Select.Value placeholder="Select reason for return..." />
+				</Select.Trigger>
+				<Select.Content>
+					{#each reasons as reason (reason)}
+						<Select.Item value={reason}>{reason}</Select.Item>
+					{/each}
+				</Select.Content>
+			</Select.Root>
+		</Form.Control>
+		<Form.FieldErrors />
+	</Form.Field>
+
+	<Form.Field {form} name="productcondition">
+		<Form.Control let:attrs>
+			<Form.Label>Product Condition</Form.Label>
+			<Select.Root
+				selected={selectedCondition}
+				onSelectedChange={(v) => {
+					v && ($formData.productcondition = v.value);
+				}}
+			>
+				<Select.Trigger {...attrs} class="w-[180px]">
+					<Select.Value placeholder="Select product condition..." />
+				</Select.Trigger>
+				<Select.Content>
+					{#each productConditions as productCondition (productCondition)}
+						<Select.Item value={productCondition}>{productCondition}</Select.Item>
+					{/each}
+				</Select.Content>
+			</Select.Root>
+		</Form.Control>
+		<Form.FieldErrors />
+	</Form.Field>
+
+	<Form.Button class="mb-2">Submit</Form.Button>
 </form>
 
 <style>
