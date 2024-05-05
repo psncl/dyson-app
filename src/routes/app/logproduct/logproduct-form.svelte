@@ -16,7 +16,19 @@
 		console.log($formData);
 	};
 
-	let productModels = ['V12', 'V18', 'V21'];
+	let productModels = [
+		'Dyson Gen5detect',
+		'Dyson V15s Detect Submarine',
+		'Dyson V15 Detect Absolute',
+		'Dyson V12 Detect Slim Absolute',
+		'Dyson V11',
+		'Dyson Cyclone V10 Absolute',
+		'Dyson V8',
+		'Dyson Ball Animal Origin',
+		'Dyson Ball Animal',
+		'Dyson Ball Animal Multi-floor',
+		'Dyson Ball Animal Complete'
+	];
 	$: selectedModel = $formData.productmodel
 		? {
 				label: $formData.productmodel,
