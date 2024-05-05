@@ -1,4 +1,4 @@
-<script>
+<!-- <script>
 	let reasons = ['refund', 'repair', 'recycle'];
 	let products = [
 		{
@@ -186,4 +186,4 @@
 	.radio-options > label {
 		margin-left: 0.5rem;
 	}
-</style>
+</style> -->

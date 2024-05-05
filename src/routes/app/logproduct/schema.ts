@@ -13,6 +13,6 @@ export const formSchema = z.object({
 	dateprocessing: z.string().date(),
 	reasonreturn: returnReasonSchema,
 	productcondition: productConditionSchema
-});
+})
 
 export type FormSchema = typeof formSchema;
