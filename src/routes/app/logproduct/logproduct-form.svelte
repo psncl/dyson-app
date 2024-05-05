@@ -8,8 +8,7 @@
 	export let data: SuperValidated<Infer<FormSchema>>;
 
 	const form = superForm(data, {
-		validators: zodClient(formSchema),
-		clearOnSubmit: 'errors'
+		validators: zodClient(formSchema)
 	});
 	const { form: formData, enhance } = form;
 
@@ -42,7 +41,7 @@
 		: undefined;
 </script>
 
-<!-- <SuperDebug data={formData} /> -->
+<SuperDebug data={formData} />
 
 <form method="POST" use:enhance class="flex items-end gap-4" on:submit={handleSubmit}>
 	<Form.Field {form} name="productmodel">

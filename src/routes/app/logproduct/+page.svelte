@@ -1,11 +1,6 @@
 <script>
 	import LogForm from './logproduct-form.svelte';
 	export let data;
-	let products = [
-		{
-			sNo: 1
-		}
-	];
 
 	function addProduct() {
 		let numCurrentItems = products.length;
