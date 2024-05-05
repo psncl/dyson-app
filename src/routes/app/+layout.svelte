@@ -11,9 +11,9 @@
 	</div>
 	<div class="nav-links">
 		<ul>
-			<a href="/app">Dashboard</a>
 			<a href="/app/logproduct">Log New Products</a>
 			<a href="/app/viewproducts">View Logged Products</a>
+			<a href="/app/statistics">View Statistics</a>
 			<a href="/app/users/manage">Manage Users</a>
 		</ul>
 		<div class="user-icon">
