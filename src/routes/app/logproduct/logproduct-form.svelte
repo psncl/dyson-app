@@ -15,24 +15,7 @@
 	const { form: formData, enhance } = form;
 
 	const handleSubmit = async () => {
-		console.log($formData);
-		//
-		// const viewItems = new Request(apiURL + '/product/productList', {
-		// 	method: 'POST',
-		// 	body: JSON.stringify({
-		// 		pageIndex: 1,
-		// 		pageSize: 10000000,
-		// 		productName: 'Dyson VII',
-		// 		returnReason: 'Refund'
-		// 	}),
-		// 	headers: {
-		// 		'Content-Type': 'application/json',
-		// 		Authorization: $jwt
-		// 	}
-		// });
-		// const res = await fetch(viewItems);
-		// const data = await res.json();
-		// console.log(data);
+		// console.log($formData);
 	};
 
 	let productModels = [

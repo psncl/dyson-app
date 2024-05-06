@@ -8,7 +8,7 @@ export async function load({ event, cookies }) {
 		method: 'POST',
 		body: JSON.stringify({
 			pageIndex: 1,
-			pageSize: 100
+			pageSize: 1000
 		}),
 		headers: {
 			'Content-Type': 'application/json',
