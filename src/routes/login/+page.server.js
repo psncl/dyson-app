@@ -1,6 +1,5 @@
 import { fail, redirect } from '@sveltejs/kit';
 import { apiURL } from '$lib/api.js';
-import { name, role, userid } from '../app/userStore';
 
 export const actions = {
 	default: async ({ request, cookies }) => {
@@ -22,6 +21,7 @@ export const actions = {
 		if (data.code === 200) {
 			const jwtToken = data.data;
 			cookies.set('Authorization', jwtToken, { path: '/' });
+			cookies.set('isloggedin', 'yes', { path: '/' });
 			redirect(302, '/app/viewproducts');
 			// return data;
 		} else {

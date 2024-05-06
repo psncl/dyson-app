@@ -32,7 +32,8 @@ export async function load({ cookies }) {
 			uid,
 			role,
 			name,
-			username
+			username,
+			jwt: token
 		}
 	};
 }

@@ -3,11 +3,12 @@
 	export let data;
 
 	// Set global user info
-	import { name, username, role, userid } from './userStore';
+	import { name, username, role, userid, jwt } from './userStore';
 	name.set(data.userData.name);
 	username.set(data.userData.username);
 	role.set(data.userData.role);
-	userid.set(data.userData.userid);
+	userid.set(data.userData.uid);
+	jwt.set(data.userData.jwt);
 </script>
 
 <nav>

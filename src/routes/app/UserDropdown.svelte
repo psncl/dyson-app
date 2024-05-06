@@ -5,6 +5,7 @@
 	import { Button } from '$lib/components/ui/button/index.js';
 	import * as DropdownMenu from '$lib/components/ui/dropdown-menu/index.js';
 	import { name, role, userid } from './userStore';
+	const logoutURL = '/logout?u=' + $userid;
 </script>
 
 <DropdownMenu.Root>
@@ -25,7 +26,7 @@
 		<DropdownMenu.Separator />
 		<DropdownMenu.Item>
 			<LogOut class="mr-2 h-4 w-4" />
-			<span>Log out</span>
+			<span data-sveltekit-preload-data="off"><a href={logoutURL}>Log out</a></span>
 		</DropdownMenu.Item>
 	</DropdownMenu.Content>
 </DropdownMenu.Root>

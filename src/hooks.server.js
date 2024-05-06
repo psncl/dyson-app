@@ -1,5 +1,6 @@
 import { redirect } from '@sveltejs/kit';
 import { apiURL } from '$lib/api.js';
+import { jwt } from './routes/app/userStore';
 
 export const handle = async ({ event, resolve }) => {
 	const requestedPath = event.url.pathname;
@@ -17,6 +18,7 @@ export const handle = async ({ event, resolve }) => {
 	return response;
 };
 
+// Assume user is logged in if successful API call to /user/userInfo
 const validateTokenFunction = async (cookies) => {
 	const jwtToken = cookies.get('Authorization');
 	const res = await fetch(`${apiURL}/user/userInfo`, {
@@ -26,6 +28,6 @@ const validateTokenFunction = async (cookies) => {
 		}
 	});
 
-	// Backend gives 500 response if JWT token isn't valid. So won't give a proper JSON.parse response in case of error.
+	// Backend gives 500 response if JWT token isn't valid. Due to lack of a proper 4xx response, using JSON.parse on the 500 response breaks the app, says "Unexpected end of JSON output".
 	return res.status === 200;
 };
