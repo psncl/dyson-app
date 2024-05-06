@@ -6,8 +6,7 @@
 	import SuperDebug, { type SuperValidated, type Infer, superForm } from 'sveltekit-superforms';
 	import { zodClient } from 'sveltekit-superforms/adapters';
 	export let data: SuperValidated<Infer<FormSchema>>;
-	import { apiURL } from '$lib/api.js';
-	import { jwt } from '../userStore';
+	let itemAddedStatus = false;
 
 	const form = superForm(data, {
 		validators: zodClient(formSchema)
@@ -15,7 +14,23 @@
 	const { form: formData, enhance } = form;
 
 	const handleSubmit = async () => {
-		// console.log($formData);
+		const fdata = $formData;
+		const response = await fetch('/app/logproduct', {
+			method: 'POST',
+			body: JSON.stringify({ fdata }),
+			headers: {
+				'Content-Type': 'application/json'
+			}
+		});
+
+		const res = await response.json();
+		if (res.code === 200) {
+			itemAddedStatus = true;
+
+			setTimeout(function () {
+				itemAddedStatus = false;
+			}, 1000);
+		}
 	};
 
 	let productModels = [
@@ -31,31 +46,31 @@
 		'Dyson Ball Animal Multi-floor',
 		'Dyson Ball Animal Complete'
 	];
-	$: selectedModel = $formData.productmodel
+	$: selectedModel = $formData.productName
 		? {
-				label: $formData.productmodel,
-				value: $formData.productmodel
+				label: $formData.productName,
+				value: $formData.productName
 			}
 		: undefined;
 
 	let reasons = ['Refund', 'Repair', 'Recycle'];
-	$: selectedReason = $formData.reasonreturn
+	$: selectedReason = $formData.returnReason
 		? {
-				label: $formData.reasonreturn,
-				value: $formData.reasonreturn
+				label: $formData.returnReason,
+				value: $formData.returnReason
 			}
 		: undefined;
 
 	let productConditions = ['New', 'Used', 'Poor'];
-	$: selectedCondition = $formData.productcondition
+	$: selectedCondition = $formData.productCondition
 		? {
-				label: $formData.productcondition,
-				value: $formData.productcondition
+				label: $formData.productCondition,
+				value: $formData.productCondition
 			}
 		: undefined;
 </script>
 
-<SuperDebug data={formData} />
+<!-- <SuperDebug data={formData} /> -->
 
 <form method="POST" use:enhance class="flex items-end gap-4" on:submit={handleSubmit}>
 	<Form.Field {form} name="productmodel">
@@ -64,7 +79,7 @@
 			<Select.Root
 				selected={selectedModel}
 				onSelectedChange={(v) => {
-					v && ($formData.productmodel = v.value);
+					v && ($formData.productName = v.value);
 				}}
 			>
 				<Select.Trigger {...attrs} class="w-[180px]">
@@ -82,7 +97,7 @@
 
 	<Form.Field {form} name="cname">
 		<Form.Control let:attrs>
-			<Input {...attrs} bind:value={$formData.cname} placeholder="Customer Name" />
+			<Input {...attrs} bind:value={$formData.customerName} placeholder="Customer Name" />
 		</Form.Control>
 		<Form.FieldErrors />
 	</Form.Field>
@@ -91,7 +106,7 @@
 		<Form.Control let:attrs>
 			<Input
 				{...attrs}
-				bind:value={$formData.serialnumber}
+				bind:value={$formData.serialNumber}
 				maxlength="10"
 				placeholder="Serial Number"
 			/>
@@ -103,7 +118,7 @@
 		<Form.Control let:attrs>
 			<Form.Label>Date of Return</Form.Label>
 			<br />
-			<input class="datepicker" type="date" bind:value={$formData.datereturn} required />
+			<input class="datepicker" type="date" bind:value={$formData.returnDate} required />
 		</Form.Control>
 		<Form.FieldErrors />
 	</Form.Field>
@@ -112,7 +127,7 @@
 		<Form.Control let:attrs>
 			<Form.Label>Date of Processing</Form.Label>
 			<br />
-			<input class="datepicker" type="date" bind:value={$formData.dateprocessing} required />
+			<input class="datepicker" type="date" bind:value={$formData.processingDate} required />
 		</Form.Control>
 		<Form.FieldErrors />
 	</Form.Field>
@@ -123,7 +138,7 @@
 			<Select.Root
 				selected={selectedReason}
 				onSelectedChange={(v) => {
-					v && ($formData.reasonreturn = v.value);
+					v && ($formData.returnReason = v.value);
 				}}
 			>
 				<Select.Trigger {...attrs} class="w-[180px]">
@@ -145,7 +160,7 @@
 			<Select.Root
 				selected={selectedCondition}
 				onSelectedChange={(v) => {
-					v && ($formData.productcondition = v.value);
+					v && ($formData.productCondition = v.value);
 				}}
 			>
 				<Select.Trigger {...attrs} class="w-[180px]">
@@ -162,6 +177,9 @@
 	</Form.Field>
 
 	<Form.Button class="mb-2">Submit</Form.Button>
+	{#if itemAddedStatus}
+		<span class="item-added">Item added successfully</span>
+	{/if}
 </form>
 
 <style>
@@ -174,5 +192,10 @@
 		height: 2.5rem;
 		border: 1px solid rgb(226, 232, 240);
 		border-radius: 6px;
+	}
+
+	.item-added {
+		color: green;
+		font-size: 2rem;
 	}
 </style>

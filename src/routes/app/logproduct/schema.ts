@@ -7,13 +7,13 @@ const productConditionSchema = z.enum(["New", "Used", "Poor"]);
 const sNoLength = 10;
 
 export const formSchema = z.object({
-	productmodel: productModelSchema,
-	cname: z.string().min(2).max(50).trim().includes(' ', { message: "Must include both a First and Last name"}),
-	serialnumber: z.string().trim().length(sNoLength, { message: `Must be exactly ${sNoLength} characters long`}),
-	datereturn: z.string(),
-	dateprocessing: z.string(),
-	reasonreturn: returnReasonSchema,
-	productcondition: productConditionSchema
+	productName: productModelSchema,
+	customerName: z.string().min(2).max(50).trim().includes(' ', { message: "Must include both a First and Last name"}),
+	serialNumber: z.string().trim().length(sNoLength, { message: `Must be exactly ${sNoLength} characters long`}),
+	returnDate: z.string(),
+	processingDate: z.string(),
+	returnReason: returnReasonSchema,
+	productCondition: productConditionSchema
 })
 
 export type FormSchema = typeof formSchema;
