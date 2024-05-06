@@ -1,5 +1,6 @@
 import { fail, redirect } from '@sveltejs/kit';
 import { apiURL } from '$lib/api.js';
+import { name, role, userid } from '../app/userStore';
 
 export const actions = {
 	default: async ({ request, cookies }) => {
@@ -7,7 +8,6 @@ export const actions = {
 		const userName = formData.get('username');
 		const password = formData.get('password');
 
-		console.log(JSON.stringify({ userName, password }));
 		const loginRequest = new Request(apiURL + '/user/login', {
 			method: 'POST',
 			body: JSON.stringify({ userName, password }),
@@ -21,11 +21,11 @@ export const actions = {
 
 		if (data.code === 200) {
 			const jwtToken = data.data;
-			cookies.set('jwt', jwtToken, { path: '/' });
-			redirect(302, '/app');
+			cookies.set('Authorization', jwtToken, { path: '/' });
+			redirect(302, '/app/viewproducts');
 			// return data;
 		} else {
-			cookies.delete('jwt', { path: '/' });
+			cookies.delete('Authorization', { path: '/' });
 			return fail(400, { error: 'Invalid username or password' });
 		}
 	}

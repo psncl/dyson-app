@@ -4,6 +4,7 @@
 
 	import { Button } from '$lib/components/ui/button/index.js';
 	import * as DropdownMenu from '$lib/components/ui/dropdown-menu/index.js';
+	import { name, role, userid } from './userStore';
 </script>
 
 <DropdownMenu.Root>
@@ -11,8 +12,9 @@
 		<Button builders={[builder]}><img src="/user-circle-icon.svg" alt="user-icon" /></Button>
 	</DropdownMenu.Trigger>
 	<DropdownMenu.Content class="w-56 border-y-4 border-y-green-600">
-		<DropdownMenu.Label>Welcome &#123; Username &#125;</DropdownMenu.Label>
-		<DropdownMenu.Label>Senior Logistics Officer</DropdownMenu.Label>
+		<!-- <DropdownMenu.Label>Welcome &#123; Username &#125;</DropdownMenu.Label> -->
+		<DropdownMenu.Label>Welcome {$name}</DropdownMenu.Label>
+		<DropdownMenu.Label>{$role}</DropdownMenu.Label>
 		<DropdownMenu.Separator />
 		<DropdownMenu.Group>
 			<DropdownMenu.Item>

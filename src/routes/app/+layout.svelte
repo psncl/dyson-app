@@ -1,10 +1,18 @@
 <script>
 	import UserDropdown from './UserDropdown.svelte';
+	export let data;
+
+	// Set global user info
+	import { name, username, role, userid } from './userStore';
+	name.set(data.userData.name);
+	username.set(data.userData.username);
+	role.set(data.userData.role);
+	userid.set(data.userData.userid);
 </script>
 
 <nav>
 	<div class="home-and-logo">
-		<a href="/app" class="home-icon-container">
+		<a href="/app/viewproducts" class="home-icon-container">
 			<img src="/home.png" class="home-icon" alt="home-icon" />
 		</a>
 		<img src="/dyson_logo.svg" alt="dyson logo" class="logo" />

@@ -18,7 +18,7 @@ export const handle = async ({ event, resolve }) => {
 };
 
 const validateTokenFunction = async (cookies) => {
-	const jwtToken = cookies.get('jwt');
+	const jwtToken = cookies.get('Authorization');
 	const res = await fetch(`${apiURL}/user/userInfo`, {
 		method: 'POST',
 		headers: {
