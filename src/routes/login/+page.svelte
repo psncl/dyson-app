@@ -1,6 +1,6 @@
 <script>
 	import { enhance } from '$app/forms';
-	let pwdInputType = 'text';
+	let pwdInputType = 'password';
 
 	const togglePassword = () => {
 		if (pwdInputType === 'password') {
