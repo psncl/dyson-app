@@ -72,7 +72,7 @@
 
 <!-- <SuperDebug data={formData} /> -->
 
-<form method="POST" use:enhance class="flex items-end gap-4" on:submit={handleSubmit}>
+<form method="POST" use:enhance class="flex flex-col gap-4" on:submit={handleSubmit}>
 	<Form.Field {form} name="productmodel">
 		<Form.Control let:attrs>
 			<Form.Label>Product Model</Form.Label>
@@ -196,6 +196,6 @@
 
 	.item-added {
 		color: green;
-		font-size: 2rem;
+		font-size: 1.5rem;
 	}
 </style>

@@ -1,14 +1,6 @@
 <script>
 	import LogForm from './logproduct-form.svelte';
 	export let data;
-
-	function addProduct() {
-		let numCurrentItems = products.length;
-		products.push({
-			sNo: numCurrentItems + 1
-		});
-		products = products;
-	}
 </script>
 
 <div class="mycontainer">
@@ -27,16 +19,18 @@
 
 	.mycontainer {
 		margin: 1.5rem auto 0 auto;
-		width: 90%;
+		width: 70vh;
+		display: flex;
+		flex-direction: column;
 	}
 
 	.grid-container {
-		height: 70vh;
-		/* display: grid;
-		grid-template-columns: 3fr 10fr; */
+		height: 60vh;
+		width: 70vh;
 		border: solid 1px #000;
 		border-radius: 0.3rem;
 		padding: 2rem;
+		align-self: center;
 	}
 
 	header {
