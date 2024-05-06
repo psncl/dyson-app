@@ -6,8 +6,10 @@
 	import { addPagination, addSortBy, addTableFilter } from 'svelte-headless-table/plugins';
 	import ArrowUpDown from 'lucide-svelte/icons/arrow-up-down';
 	import { Input } from '$lib/components/ui/input';
+	import { onMount } from 'svelte';
 
-	import { data } from './data.js';
+	// import { data } from './data.js';
+	export let data;
 
 	const table = createTable(readable(data), {
 		page: addPagination(),
@@ -19,29 +21,33 @@
 
 	const columns = table.createColumns([
 		table.column({
-			accessor: 'sno',
+			accessor: 'serialNumber',
 			header: 'S. No'
 		}),
 		table.column({
-			accessor: 'cName',
+			accessor: 'productName',
+			header: 'Product Name'
+		}),
+		table.column({
+			accessor: 'customerName',
 			header: 'Customer Name'
 		}),
 		table.column({
-			accessor: 'loggedDate',
-			header: 'Logged On',
+			accessor: 'returnDate',
+			header: 'Returned On',
 			filter: {
 				exclude: true
 			}
 		}),
 		table.column({
-			accessor: 'modifiedDate',
-			header: 'Last Modified',
+			accessor: 'processingDate',
+			header: 'Processed On',
 			filter: {
 				exclude: true
 			}
 		}),
 		table.column({
-			accessor: 'reason',
+			accessor: 'returnReason',
 			header: 'Reason'
 		})
 	]);
@@ -84,7 +90,7 @@
 							{#each row.cells as cell (cell.id)}
 								<Subscribe attrs={cell.attrs()} let:attrs>
 									<Table.Cell {...attrs}>
-										{#if cell.id === 'sno'}
+										{#if cell.id === 'serialNumber'}
 											<a href="/app/itemdetails/{cell.render()}" class={'text-blue-700'}
 												><Render of={cell.render()} /></a
 											>

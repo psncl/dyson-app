@@ -1,5 +1,7 @@
 <script>
 	import DataTable from './data-table.svelte';
+	export let data;
+	const { allproducts } = data;
 </script>
 
 <div class="mycontainer">
@@ -7,7 +9,7 @@
 		<h2>All Logged Products</h2>
 	</header>
 	<div class={'mys-table mx-auto'}>
-		<DataTable />
+		<DataTable data={allproducts} />
 	</div>
 </div>
 

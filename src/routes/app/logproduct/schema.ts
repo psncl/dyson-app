@@ -3,7 +3,7 @@ import { z } from 'zod';
 const productModelSchema = z.enum(["Dyson Gen5detect", "Dyson V15s Detect Submarine", "Dyson V15 Detect Absolute", "Dyson V12 Detect Slim Absolute",
 "Dyson V11", "Dyson Cyclone V10 Absolute", "Dyson V8", "Dyson Ball Animal Origin", "Dyson Ball Animal", "Dyson Ball Animal Multi-floor", "Dyson Ball Animal Complete"]);
 const returnReasonSchema = z.enum(["Refund", "Repair", "Recycle"]);
-const productConditionSchema = z.enum(["Poor", "Good", "Very Good", "Like New"]);
+const productConditionSchema = z.enum(["New", "Used", "Poor"]);
 const sNoLength = 10;
 
 export const formSchema = z.object({
