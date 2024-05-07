@@ -76,7 +76,7 @@
 	.graphs {
 		display: flex;
 		justify-content: space-around;
-		margin-top: 2rem;
+		/* margin-top: 2rem; */
 	}
 
 	.return-graph {
@@ -86,13 +86,13 @@
 	.return-graph h2 {
 		text-align: center;
 		font-size: 2rem;
-		margin-bottom: 1rem;
+		margin-bottom: 0.5rem;
 	}
 
 	.return-table {
 		display: grid;
 		grid-template-rows: 1fr 2fr 2fr 2fr;
-		padding: 4rem 10rem 2rem 10rem;
+		padding: 2rem 10rem 2rem 10rem;
 	}
 
 	.rt-header,

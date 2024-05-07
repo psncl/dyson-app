@@ -84,7 +84,7 @@
 
 	.container {
 		width: 70%;
-		margin: 5rem auto 0 auto;
+		margin: 2rem auto 0 auto;
 	}
 
 	header {
@@ -139,7 +139,7 @@
 		grid-template-rows: repeat(7, 1fr);
 		justify-content: center;
 		align-items: center;
-		gap: 40px;
+		gap: 20px;
 		border: solid 1px #000;
 		border-radius: 0.3rem;
 		padding: 2rem;
@@ -148,7 +148,7 @@
 	.input-box label,
 	.input-box select,
 	.input-box input {
-		font-size: 2rem;
+		font-size: 1.5rem;
 	}
 
 	.input-box input,
