@@ -18,6 +18,32 @@
 			<Pie data={data.productConditionData} />
 		</div>
 	</div>
+	<div class="return-table">
+		<div class="rt-header">
+			<div>Product</div>
+			<div>Quantity</div>
+			<div>Reason of Return</div>
+			<div>Condition</div>
+		</div>
+		<div class="rt-cell">
+			<div>Dyson V12</div>
+			<div>104</div>
+			<div>54% Refund<br />17% Recycle<br />29% Repair</div>
+			<div>10% New<br />50% Used<br />40% Poor</div>
+		</div>
+		<div class="rt-cell">
+			<div>Dyson Ball Animal</div>
+			<div>54</div>
+			<div>15% Refund<br />25% Recycle<br />60% Repair</div>
+			<div>10% New<br />50% Used<br />40% Poor</div>
+		</div>
+		<div class="rt-cell">
+			<div>Dyson V15s</div>
+			<div>25</div>
+			<div>20% Refund<br />22% Recycle<br />58% Repair</div>
+			<div>5% New<br />60% Used<br />35% Poor</div>
+		</div>
+	</div>
 </div>
 
 <style>
@@ -25,7 +51,7 @@
 
 	.mycontainer {
 		width: 60%;
-		margin: 5rem auto 0 auto;
+		margin: 2rem auto 0 auto;
 		border: 1px solid #000;
 		border-radius: 0.5rem;
 	}
@@ -61,5 +87,38 @@
 		text-align: center;
 		font-size: 2rem;
 		margin-bottom: 1rem;
+	}
+
+	.return-table {
+		display: grid;
+		grid-template-rows: 1fr 2fr 2fr 2fr;
+		padding: 4rem 10rem 2rem 10rem;
+	}
+
+	.rt-header,
+	.rt-cell {
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
+		border-bottom: 1px solid black;
+		border-radius: 0.5rem;
+	}
+
+	.rt-header div {
+		font-size: 1.5rem;
+	}
+
+	.rt-cell div {
+		font-size: 1.2rem;
+	}
+
+	:is(.rt-header, .rt-cell) div {
+		padding: 0.5rem 0;
+		text-align: center;
+		align-self: center;
+	}
+
+	.rt-header {
+		background-color: var(--bg-accent-color);
+		color: #fff;
 	}
 </style>
