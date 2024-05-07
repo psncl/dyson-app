@@ -23,17 +23,19 @@
 			<Table.Header>
 				<Table.Row class={'bg-green-600 hover:bg-green-600'}>
 					<Table.Head class={'w-[200px] text-gray-50'}>Name</Table.Head>
-					<Table.Head class={'text-gray-50'}>User ID</Table.Head>
+					<Table.Head class={'text-gray-50'}>UID</Table.Head>
+					<Table.Head class={'text-gray-50'}>Username</Table.Head>
 					<Table.Head class={'text-gray-50'}>Email</Table.Head>
 					<Table.Head class={'text-gray-50'}>Role</Table.Head>
 					<Table.Head class={'text-center text-gray-50'}>Edit</Table.Head>
 				</Table.Row>
 			</Table.Header>
 			<Table.Body>
-				{#each data.users as user, i (i)}
+				{#each data.allusers as user, i (i)}
 					<Table.Row>
-						<Table.Cell class="font-medium">{user.name}</Table.Cell>
-						<Table.Cell>{user.userid}</Table.Cell>
+						<Table.Cell class="font-medium">{user.loginName}</Table.Cell>
+						<Table.Cell>{user.uid}</Table.Cell>
+						<Table.Cell>{user.userName}</Table.Cell>
 						<Table.Cell>{user.email}</Table.Cell>
 						<Table.Cell>{user.role}</Table.Cell>
 						<Table.Cell class="text-center">

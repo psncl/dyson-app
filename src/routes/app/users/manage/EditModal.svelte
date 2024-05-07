@@ -25,11 +25,11 @@
 		<div class="grid gap-4 py-4">
 			<div class="grid grid-cols-4 items-center gap-4">
 				<Label for="userid" class="text-right">User ID</Label>
-				<Input id="userid" value={userData.userid} class="col-span-3" disabled />
+				<Input id="userid" value={userData.uid} class="col-span-3" disabled />
 			</div>
 			<div class="grid grid-cols-4 items-center gap-4">
 				<Label for="name" class="text-right">Name</Label>
-				<Input id="name" value={userData.name} class="col-span-3" />
+				<Input id="name" value={userData.loginName} class="col-span-3" />
 			</div>
 			<div class="grid grid-cols-4 items-center gap-4">
 				<Label for="email" class="text-right">Email</Label>

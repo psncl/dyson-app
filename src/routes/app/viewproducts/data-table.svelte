@@ -22,8 +22,9 @@
 	const columns = table.createColumns([
 		table.column({
 			accessor: 'serialNumber',
-			header: 'S. No'
+			header: 'Serial Number'
 		}),
+
 		table.column({
 			accessor: 'productName',
 			header: 'Product Name'
@@ -49,6 +50,10 @@
 		table.column({
 			accessor: 'returnReason',
 			header: 'Reason'
+		}),
+		table.column({
+			accessor: 'pid',
+			header: 'Edit'
 		})
 	]);
 
@@ -90,9 +95,10 @@
 							{#each row.cells as cell (cell.id)}
 								<Subscribe attrs={cell.attrs()} let:attrs>
 									<Table.Cell {...attrs}>
-										{#if cell.id === 'serialNumber'}
-											<a href="/app/itemdetails/{cell.render()}" class={'text-blue-700'}
-												><Render of={cell.render()} /></a
+										{#if cell.id === 'pid'}
+											<a href="/app/itemdetails/{cell.render()}" class={'text-blue-700'}>
+												<!-- <Render of={cell.render()} /> -->
+												Edit</a
 											>
 										{:else}
 											<Render of={cell.render()} />
