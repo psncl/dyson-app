@@ -1,3 +1,8 @@
+<!-- 
+	This creates the dropdown menu that shows up on clicking
+	the user icon in the top right of the page (inside the navbar).
+ -->
+
 <script lang="ts">
 	import LogOut from 'lucide-svelte/icons/log-out';
 	import { Bolt } from 'lucide-svelte';
@@ -13,7 +18,6 @@
 		<Button builders={[builder]}><img src="/user-circle-icon.svg" alt="user-icon" /></Button>
 	</DropdownMenu.Trigger>
 	<DropdownMenu.Content class="w-56 border-y-4 border-y-green-600">
-		<!-- <DropdownMenu.Label>Welcome &#123; Username &#125;</DropdownMenu.Label> -->
 		<DropdownMenu.Label>Welcome {$name}</DropdownMenu.Label>
 		<DropdownMenu.Label>{$role}</DropdownMenu.Label>
 		<DropdownMenu.Separator />

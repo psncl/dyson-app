@@ -1,8 +1,21 @@
+<!-- 
+	+layout.svelte in Svelte forms the root layout of all components at the same or inner paths.
+	So any component in this file will show in everything in itemdetails, logproduct, statistics, users, viewproducts.
+
+	For this project, it's being used to create the nav bar and a container to hold the other components, so that if needed,
+	the size of all components can be adjusted for different devices.
+
+	Stores are also used to set some global user info accessible to all components.
+
+	@author: Pushkar Sinha
+	@date: 09 May 2024
+ -->
+
 <script>
 	import UserDropdown from './UserDropdown.svelte';
 	export let data;
 
-	// Set global user info
+	// Set global user info from the data loaded from +layout.server.js
 	import { name, username, role, userid, jwt } from './userStore';
 	name.set(data.userData.name);
 	username.set(data.userData.username);

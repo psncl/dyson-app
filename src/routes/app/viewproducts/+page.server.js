@@ -1,3 +1,11 @@
+/* 
+Get data of all products from the API endpoint.
+Forward it to +page.svelte.
+
+@author: Pushkar Sinha
+@date: 09 May 2024
+*/
+
 import { fail, redirect } from '@sveltejs/kit';
 import { apiURL } from '$lib/api.js';
 

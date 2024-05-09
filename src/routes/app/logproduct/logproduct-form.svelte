@@ -1,3 +1,14 @@
+<!-- 
+	Create the form using Form elements from the shadcn-svelte UI library.
+	Add server validation feature using the Zod library, with schema imported from the same folder.
+	The form then sends data to the /app/logproduct endpoint in the SvelteKit backend,
+	which then forwards it to the REST API endpoint of the Spring backend.
+	The "zodClient" package performs client-side validation in addition to the main server-side one.
+
+	@author: Pushkar Sinha
+	@date: 09 May 2024
+ -->
+
 <script lang="ts">
 	import * as Form from '$lib/components/ui/form';
 	import { Input } from '$lib/components/ui/input';
@@ -69,6 +80,9 @@
 			}
 		: undefined;
 </script>
+
+<!-- Comment/uncomment the SuperDebug element to show/hide a box that shows whether the form is passing validation,
+along with HTTP status code, e.g. 200, 400, 500. -->
 
 <!-- <SuperDebug data={formData} /> -->
 

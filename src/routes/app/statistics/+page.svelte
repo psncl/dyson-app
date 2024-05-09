@@ -1,3 +1,11 @@
+<!-- 
+Use svelte-chartjs library to create pie charts.
+A Bar graph would also be added in future.
+
+@author: Pushkar Sinha
+@date: 09 May 2024
+ -->
+
 <script>
 	import Pie from './Pie.svelte';
 	import { data } from './data.js';

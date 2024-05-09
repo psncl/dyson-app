@@ -1,3 +1,12 @@
+/* 
+This is the schema for the logging form to be used by the Zod library.
+The form validation won't pass, and the form can't be submitted,
+unless every field passes the respective condition defined in the schema.
+
+@author: Pushkar Sinha
+@date: 09 May 2024
+*/
+
 import { z } from 'zod';
 
 const productModelSchema = z.enum(["Dyson Gen5detect", "Dyson V15s Detect Submarine", "Dyson V15 Detect Absolute", "Dyson V12 Detect Slim Absolute",

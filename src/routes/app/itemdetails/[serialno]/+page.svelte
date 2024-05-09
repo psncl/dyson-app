@@ -1,3 +1,13 @@
+<!-- 
+	This component uses the slug routing feature of Svelte,
+	that lets you have dynamic routes.
+	So going to /app/itemdetails/WAB8766 will request the details of item WAB8766
+	from the API endpoint and display it on the page.
+
+	@author: Pushkar Sinha
+	@date: 09 May 2024
+ -->
+
 <script>
 	export let data;
 </script>

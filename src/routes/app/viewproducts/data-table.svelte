@@ -1,3 +1,11 @@
+<!-- 
+	Use the Table component from shadcn-svelte to create a filterable table.
+	Populate the table with data passed from +page.svelte
+
+	@author: Pushkar Sinha
+	@date: 09 May 2024
+ -->
+
 <script>
 	import { createTable, Render, Subscribe, createRender } from 'svelte-headless-table';
 	import { readable } from 'svelte/store';

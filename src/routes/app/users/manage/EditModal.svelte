@@ -1,5 +1,13 @@
+<!-- 
+	Use sidebar sheet component from shadcn-svelte for the Edit feature.
+	It's only a prototype right now.
+	The form doesn't actually submit, will be added in future.
+
+	@author: Pushkar Sinha
+	@date: 09 May 2024
+ -->
+
 <script>
-	import { onMount } from 'svelte';
 	import * as Sheet from '$lib/components/ui/sheet/index.js';
 	import { Button } from '$lib/components/ui/button/index.js';
 	import { Input } from '$lib/components/ui/input/index.js';

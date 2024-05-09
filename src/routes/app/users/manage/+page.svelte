@@ -1,3 +1,11 @@
+<!-- 
+	Use the Table component from shadcn-svelte to create a filterable table.
+	Populate the table with data from +page.server.js
+
+	@author: Pushkar Sinha
+	@date: 09 May 2024
+ -->
+
 <script>
 	import * as Table from '$lib/components/ui/table';
 	import { FilePenLine } from 'lucide-svelte';

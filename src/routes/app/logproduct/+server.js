@@ -1,3 +1,12 @@
+/* 
+Gets the POST request from +page.svelte in this route,
+adds the Authorization cookie to the headers, and then forwards it
+to the actual backend API endpoint.
+
+@author: Pushkar Sinha
+@date: 09 May 2024
+*/
+
 import { json } from '@sveltejs/kit';
 import { apiURL } from '$lib/api.js';
 

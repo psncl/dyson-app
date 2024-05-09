@@ -1,3 +1,11 @@
+/* 
+This file contains dummy data to test the component without real data from the backend.
+The formatting is similar to the one returned from the API endpoint.
+
+@author: Pushkar Sinha
+@date: 09 May 2024
+*/
+
 export const data = [
 	{
 		sno: 'SJD12397123',

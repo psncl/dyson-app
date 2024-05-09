@@ -1,5 +1,13 @@
+/* 
+This file contains dummy data to test the component without real data from the backend.
+The formatting is similar to the one returned from the API endpoint.
+
+@author: Pushkar Sinha
+@date: 09 May 2024
+*/
+
 // import { items } from '../data.js';
-import { error } from '@sveltejs/kit';
+// import { error } from '@sveltejs/kit';
 
 // export function load() {
 // 	const users = [

@@ -1,3 +1,7 @@
+/* 
+Perform server-side validation of the form using Zod library.
+*/
+
 import { superValidate } from 'sveltekit-superforms';
 import { fail } from '@sveltejs/kit';
 import { formSchema } from './schema';

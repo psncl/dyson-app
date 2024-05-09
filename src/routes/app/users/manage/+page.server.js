@@ -1,3 +1,7 @@
+/* 
+Get the list of all users from the API endpoint.
+*/
+
 import { fail, redirect } from '@sveltejs/kit';
 import { apiURL } from '$lib/api.js';
 
