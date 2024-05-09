@@ -20,6 +20,7 @@
 	</div>
 	<p class="slogan">Recycled. Refurbished. Renewed.</p>
 	<form class="login-forms" method="post" use:enhance>
+		<!-- use:enhance is a Svelte feature that lets basic functionality work without JS, and adds additional features if JS is available -->
 		<input name="username" type="text" class="input-box" placeholder="Username" required />
 		<div class="password-container">
 			<input

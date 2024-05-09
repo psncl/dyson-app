@@ -1,3 +1,12 @@
+/* 
+Get the Authorization cookie from the browser,
+and send it along with the userid to the logout API endpoint.
+Delete cookies if logout is successful.
+
+@author: Pushkar Sinha
+@date: 09 May 2024
+*/
+
 import { fail, redirect } from '@sveltejs/kit';
 import { apiURL } from '$lib/api.js';
 

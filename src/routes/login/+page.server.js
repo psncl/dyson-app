@@ -1,3 +1,12 @@
+/* 
+Make a POST request to the login endpoint
+using the form data from the login page.
+Set cookies if logged in, and clear cookies from a previous session if login failed.
+
+@author: Pushkar Sinha
+@date: 09 May 2024
+*/
+
 import { fail, redirect } from '@sveltejs/kit';
 import { apiURL } from '$lib/api.js';
 

@@ -1,3 +1,9 @@
+/* 
+Set sensible defaults for sitewide CSS.
+#7bb836 is chosen as the Dyson branding color.
+Alata is similar to the DysonFutura font used on dyson.com.
+*/
+
 @import url('https://fonts.googleapis.com/css2?family=Alata&display=swap');
 
 :root {

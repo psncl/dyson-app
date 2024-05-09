@@ -1,20 +1,23 @@
+/*
+Hooks in Svelte act as middleware.
+Any page request from the browser first goes to hooks,
+then to respective routes. For this project, hooks are being
+used to perform auth checks. Since the entire app functionality needs login,
+any routes in /app must only be accessed if the "Authorization" cookie is set in the browser,
+and confirmed to be valid by the API endpoint.
+
+@author: Pushkar Sinha
+@date: 09 May 2024
+*/
+
 import { redirect } from '@sveltejs/kit';
 import { apiURL } from '$lib/api.js';
-import { jwt } from './routes/app/userStore';
 
 export const handle = async ({ event, resolve }) => {
 	const requestedPath = event.url.pathname;
 	const cookies = event.cookies;
 	const isTokenValid = await validateTokenFunction(cookies);
-
-	// if (currentPath.includes('/app')) {
-	// 	if (!isTokenValid) {
-	// 		throw redirect(303, '/');
-	// 	}
-	// }
-
 	const response = await resolve(event);
-
 	return response;
 };
 
